@@ -55,9 +55,9 @@ def chat_stream(
     )
     prompt = build_prompts(ppm, user_message, ctx_num_lconv)
 
-    print("## CHAT_STREAM:")
+    print("## CHAT_STREAM_PROMPT:")
     print(prompt)
-    print("## CHAT_STREAM END")
+    print("## CHAT_STREAM_PROMPT END")
     
     # prepare text generating streamer & start generating
     gen_kwargs, streamer = pre.build(
@@ -66,6 +66,11 @@ def chat_stream(
         res_beams, res_cache, res_sample, res_eosid, res_padid,
         return_token_type_ids=False
     )
+
+    print("## CHAT_STREAM_GEN_KWARGS:")
+    print(gen_kwargs)
+    print("## CHAT_STREAM_GEN_KWARGS END")
+
     pre.start_gen(gen_kwargs)
 
     # handling stream
