@@ -21,6 +21,18 @@ def load_model(base, finetuned, multi_gpu, force_download_ckpt):
             force_download=force_download_ckpt,
             device_map={'': 0}
         )
+
+        # def wrapped_model(*args, **kwargs):
+        #     print("## Model called!")
+        #     print(args)
+        #     print(kwargs)
+        #     model(*args, **kwargs)
+
+        # def wrapped_tokenizer(*args, **kwargs):
+        #     print("## Model called!")
+        #     print(args)
+        #     print(kwargs)
+        #     model(*args, **kwargs)
         # model = BetterTransformer.transform(model)
         return model, tokenizer
     else:

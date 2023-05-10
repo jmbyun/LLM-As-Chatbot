@@ -54,6 +54,10 @@ def chat_stream(
         PingPong(user_message, "")
     )
     prompt = build_prompts(ppm, user_message, ctx_num_lconv)
+
+    print("## CHAT_STREAM:")
+    print(prompt)
+    print("## CHAT_STREAM END")
     
     # prepare text generating streamer & start generating
     gen_kwargs, streamer = pre.build(
